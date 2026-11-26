@@ -43,13 +43,9 @@ class Smartphone:
     def __del__(self):
         print(f"Об'єкт {self.model} видалено")
 
-
-class PhoneStore:
-    def __init__(self, phones=None):
-        if phones is None:
-            self.phones = []
-        else:
-            self.phones = phones
+    class PhoneStore:
+        def __init__(self, phones=None):
+            self.phones = phones if phones is not None else []
 
     def add_phone(self, phone):
         self.phones.append(phone)
