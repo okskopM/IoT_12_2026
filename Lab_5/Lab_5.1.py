@@ -58,13 +58,8 @@ class Smartphone:
             print("-" * 20)
 
     def get_best_by_budget(self, max_budget):
-        best_phone = None
-        for phone in self.phones:
-            if phone.price <= max_budget:
-                if best_phone is None or phone.price > best_phone.price:
-                    best_phone = phone
-
-        return best_phone
+        affordable = [phone for phone in self.phones if phone.price <= max_budget]
+        return max(affordable, key=lambda phone: phone.price, default=None)
 
 if __name__ == "__main__":
     phone1 = Smartphone("Nokia", 2500, 32, 80, ["+380501234567"])
